@@ -1,17 +1,38 @@
 <script>
-import HelloWorld from './components/HelloWorld.vue';
+import Card from './components/Card.vue';
 import axios from 'axios';
 export default {
-  setup() {
-    return {};
+  name: 'App',
+  data() {
+    return {
+      baseurl: 'http://127.0.0.1:8000/',
+      portfolioApi: 'api/projects',
+      projects: [],
+    };
   },
-  components: { HelloWorld }
+  methods: {
+
+  },
+  mounted() {
+    axios.get(this.baseurl + this.portfolioApi)
+      .then(response => {
+        console.log(response);
+        this.projects = response.data.result.data
+      }).catch(err => {
+        console.error(err);
+      })
+  },
+  components: { Card }
 }
 </script>
     
 <template>
   <div>
-    <HelloWorld></HelloWorld>
+    <div class="container">
+      <div class="row flex-row row-cols-1 row-cols-md-4 gap-5 my-3   justify-content-around   ">
+        <Card :project="project" :url="baseurl" v-for="project in projects"></Card>
+      </div>
+    </div>
   </div>
 </template>
 
