@@ -1,8 +1,7 @@
 <script>
 import { store } from './store.js'
-import ProjectCard from './components/ProjectCard.vue';
 import NavBar from './components/NavBar.vue';
-import axios from 'axios';
+import AppFooter from './components/AppFooter.vue';
 export default {
   name: 'App',
   data() {
@@ -11,21 +10,30 @@ export default {
     };
   },
 
-  components: { ProjectCard, NavBar }
+  components: { NavBar, AppFooter }
 }
 </script>
     
 <template>
-  <NavBar></NavBar>
+  <header>
+    <NavBar />
+  </header>
   <main>
-    <router-view></router-view>
+    <RouterView></RouterView>
   </main>
-  <div class="container">
-    <div class="row flex-row row-cols-1 row-cols-md-4 gap-5 my-3   justify-content-around   ">
-      <ProjectCard :project="project" :url="baseurl" v-for="project in projects"></ProjectCard>
-    </div>
-  </div>
+  <footer>
+    <AppFooter />
+  </footer>
 </template>
 
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+main {
+  background-color: #e0e0e0;
+  margin: 0;
+}
+
+footer {
+  background-color: #3a606e;
+}
+</style>

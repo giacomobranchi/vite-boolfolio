@@ -6,8 +6,8 @@ export default {
 </script>
 
 <template>
-    <div class="container">
-        <h1>About Me</h1>
+    <div class="container vh-100 ">
+        <h1 class="text-center">About Me</h1>
     </div>
 </template>
 
