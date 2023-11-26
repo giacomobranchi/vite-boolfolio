@@ -18,7 +18,7 @@ export default {
   <header>
     <NavBar />
   </header>
-  <main>
+  <main class="bg-dark">
     <RouterView></RouterView>
   </main>
   <footer>
@@ -29,11 +29,12 @@ export default {
 
 <style lang="scss" scoped>
 main {
-  background-color: #e0e0e0;
+
   margin: 0;
 }
 
 footer {
-  background-color: #3a606e;
+  background-color: #212529;
+
 }
 </style>

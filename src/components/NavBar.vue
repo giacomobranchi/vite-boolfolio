@@ -8,8 +8,7 @@ export default {
 
 <template>
     <div class="navigation">
-        <h1 class="text-center">PORTFOLIO</h1>
-        <nav class="nav justify-content-center ">
+        <nav class="nav nav-pills nav-fill bg-dark  justify-content-center pt-3">
             <router-link class="nav-link" to="/">About Me</router-link>
             <router-link class="nav-link" to="/projects">Projects</router-link>
             <router-link class="nav-link" to="/contacts">Contacts</router-link>
@@ -20,8 +19,11 @@ export default {
 <style lang="scss">
 .navigation,
 nav {
-    background-color: #3a606e;
     color: white;
     text-decoration: none;
+}
+
+.navigation {
+    background-color: #212529;
 }
 </style>

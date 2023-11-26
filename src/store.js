@@ -7,7 +7,6 @@ export const store = reactive({
     baseUrl: 'http://127.0.0.1:8000/',
     portfolioApi: 'api/projects',
     portfolioLatest: '/latest',
-    // protfolioSingle: '/' + `${this.$route.param.slug}`,
     projects: null,
     project: null,
     types: null,
@@ -41,8 +40,6 @@ export const store = reactive({
             .then(response => {
                 console.log('TYPES:', response);
                 this.types = response.data.result.data;
-                // this.queryData = response.data.result;
-                // this.queryLinks = response.data.result.links;
             }).catch(err => {
                 console.error(err);
             })
@@ -64,7 +61,7 @@ export const store = reactive({
     getLatest() {
         axios.get(this.baseUrl + this.portfolioApi + this.portfolioLatest)
             .then(response => {
-                this.latestProjects = response.data.result;
+                this.latestProjects = response.data.projects;
                 console.log('LATEST PROJECTS:', this.latestProjects);
             }).catch(err => {
                 console.error(err);

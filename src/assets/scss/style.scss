@@ -1,2 +1,13 @@
 @use 'bootstrap';
-@use './_variables.scss'
+
+
+.line {
+    border-left: 5px solid red;
+    /* height: 100px; */
+    flex-grow: 1;
+    margin-left: 4rem;
+}
+
+body {
+    min-height: 100vh;
+}

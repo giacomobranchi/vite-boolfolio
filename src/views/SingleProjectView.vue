@@ -47,22 +47,41 @@ export default {
 </script>
 
 <template>
-    <section :id="project.slug" class="vh-100 pt-5" v-if="project">
-        <div class="px-2">
-            <div class="card text-center p-0 flex-grow-1  ">
-                <h4 class="card-header card-title">{{ project.title }}</h4>
-                <img class="card-img-top img-fluid object-fit-cover " :src="targetUrl" :alt="project.title">
-                <div class="card-body">
-                    <p class="card-text">{{ project.content }}</p>
-                    <p class="card-text" :href="project.website">{{ project.website }}</p>
-                    <p class="card-text" :href=project.github>{{ project.github }}</p>
-                    <p v-if="project.type != null" class="card-text">{{ project.type.name }}</p>
-                    <p v-for="technology in project.technologies" class="card-text">{{ technology.name }}</p>
-                    <router-link class="btn btn-primary" to="/projects/:slug">Button</router-link>
+    <section :id="project.slug" class=" pt-5" v-if="project">
+
+        <div class="container ">
+            <div class="container p-2 py-4">
+
+                <div class="row">
+                    <div class="col-1 d-flex justify-content-end">
+                        <div class="line"></div>
+                    </div>
+                    <div class="col-11">
+                        <h1 class=" text-start text-light     display-4 ">{{ project.title }}</h1>
+                        <p class="text-white display-6 ">
+                            {{ project.content }}
+                        </p>
+                        <img class="col-2 card-img-top card_img my-3 " src="../assets/img/placeholder.png" alt="Title">
+                        <p class="text-white">Code: <a :href="project.github">{{ project.github }}</a></p>
+                        <p class="text-white">Website: <a :href="project.website">{{ project.website }}</a></p>
+                        <p v-if="project.type" class="text-white">Type: <span
+                                class=" ms-2     rounded-pill badge  text-bg-primary">{{
+                                    project.type.name
+                                }}</span></p>
+                        <p class="text-white">Technologies: <span v-for="technology in project.technologies"
+                                class="text-white ms-2  badge rounded-pill text-bg-success text-uppercase "> {{
+                                    technology.name
+                                }}</span></p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.card_img {
+    width: 300px;
+    margin-right: 3rem;
+}
+</style>

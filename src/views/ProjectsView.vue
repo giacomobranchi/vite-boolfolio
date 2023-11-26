@@ -1,5 +1,5 @@
 <script>
-import ProjectCard from '../components/ProjectCard.vue'
+import ProjectCard from '../components/ProjectCard.vue';
 import { store } from '../store';
 export default {
     name: "ProjectsView",
@@ -32,21 +32,41 @@ export default {
 <template>
     <section id="projects" class="pt-5">
 
-        <div class="container py-2 ">
-
-            <h1 class="text-center my-3">Projects</h1>
 
 
+        <div class="container">
+            <div class="container p-2 py-4">
 
-            <div class="row flex-row row-cols-1 row-cols-md-2 g-3  row-cols-lg-3 ">
+                <div class="row">
+                    <div class="col-1 d-flex justify-content-end">
+                        <div class="line"></div>
+                    </div>
+                    <div class="col-6">
+                        <h1 class=" text-start text-light     display-1 ">Projects.</h1>
+                        <p class="text-white">
+                            Here's the list of all My Projects <br>
 
-                <ProjectCard :project="project" :url="store.baseUrl" v-for="project in store.projects" />
+                        </p>
+                    </div>
+                </div>
+                <div class=" projects row flex-row row-cols-1 row-cols-md-2 g-3  row-cols-lg-3 ">
 
+                    <ProjectCard :project="project" :url="store.baseUrl" v-for="project in store.projects" />
+
+                </div>
             </div>
-
-
         </div>
+
+
+
+
+
     </section>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.projects {
+    margin-top: 3rem;
+    padding: 3rem;
+}
+</style>
